@@ -14,7 +14,7 @@ const C = {
   key: '#f2efe6', keyShade: '#d3cdbf', keyBlack: '#0a0a0a',
   fabricA: '#2c2f2c', fabricB: '#121312',
   leather: '#5a3a22', leatherLit: '#7a5232', leatherDark: '#3a2516',
-  ink: '#f4f1ea',
+  ink: '#f4f1ea', gold: '#c8a96a',
 };
 const FINISH = {
   black: { lit: '#2b2d2b', mid: '#1b1c1b', dark: '#0b0c0b', grille: '#080908', hole: '#262826' },
@@ -25,13 +25,13 @@ const FINISH = {
 };
 
 let uid = 0;
-const r = (x, y, w, h, fill, extra = '') => `<rect x="${f(x)}" y="${f(y)}" width="${f(w)}" height="${f(h)}" fill="${fill}"${extra}/>`;
+const r = (x, y, w, h, fill, extra = '') => fill === 'none' ? '' : `<rect x="${f(x)}" y="${f(y)}" width="${f(w)}" height="${f(h)}" fill="${fill}"${extra}/>`;
 const c = (x, y, rad, fill) => `<circle cx="${f(x)}" cy="${f(y)}" r="${f(rad)}" fill="${fill}"/>`;
 const p = (d, fill) => `<path d="${d}" fill="${fill}"/>`;
 const f = (n) => Math.round(n * 100) / 100;
-const svg = (w, h, body, title) =>
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img"><title>${title}</title>${body}</svg>\n`;
-const save = (name, w, h, body, title) => writeFileSync(join(OUT, name), svg(w, h, body, title));
+const svg = (w, h, body, title, vb = `0 0 ${w} ${h}`) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}" width="${vb.split(' ')[2]}" height="${vb.split(' ')[3]}" role="img"><title>${title}</title>${body}</svg>\n`;
+const save = (name, w, h, body, title, vb) => writeFileSync(join(OUT, name), svg(w, h, body, title, vb));
 
 // ---------- the accordion, front view, in local units (body 400 tall) ----------
 function accordion({ finish = 'black', whites = 24, folds = 6, fw = 11, bassW = 84, strap = true, closedStrap = false, plate = 'HOHNER' }) {
@@ -121,7 +121,7 @@ function place(obj, cx, baseY, height) {
 }
 
 // ---------- scene: an accordion on a plinth, like an object in a dim gallery ----------
-function plinthScene(name, title, { w = 750, h = 1000, bg = C.ground, plinth = C.ground2, plinthLit = C.ground3, fill = 0.62, plinthTop = 0.8, ...a }) {
+function plinthScene(name, title, { w = 750, h = 1000, bg = 'none', plinth = '#15120e', plinthLit = C.gold, fill = 0.62, plinthTop = 0.8, ...a }) {
   const obj = accordion(a);
   const s = Math.min((h * fill) / obj.H, (w * 0.86) / obj.W);
   const ow = obj.W * s;
@@ -129,21 +129,16 @@ function plinthScene(name, title, { w = 750, h = 1000, bg = C.ground, plinth = C
   const pw = Math.min(w, ow * 1.18);
   const body = [
     r(0, 0, w, h, bg),
-    r((w - pw) / 2, top, pw, h - top, plinth), r((w - pw) / 2, top, pw, 8, plinthLit),
+    r((w - pw) / 2, top, pw, h - top, plinth), r((w - pw) / 2, top + 10, pw, (h - top) * 0.5, '#100e0b'), r((w - pw) / 2, top, pw, 2, plinthLit),
     place(obj, w / 2, top + 2, obj.H * s),
   ].join('');
   save(name, w, h, body, title);
 }
 
-// hero: the bellows pulled open, in three finishes of one framing, crossfaded on the page
-for (const [fin, word] of [['black', '黑色'], ['red', '红色'], ['pearl', '珍珠白']]) {
-  plinthScene(`hero-${fin}.svg`, `一架${word} 120 贝斯手风琴，风箱拉开，立在展台上`, { w: 1600, h: 760, fill: 0.7, plinthTop: 0.86, finish: fin, whites: 24, folds: 16, fw: 13 });
-}
-
 // showcase chapters, each on the darkest tone of its own picture
-plinthScene('ch-kids.svg', '一架红色的 16 贝斯儿童手风琴', { bg: '#2a1011', plinth: '#3a1718', plinthLit: '#4b1f20', finish: 'red', whites: 12, folds: 4, fw: 10, bassW: 56, fill: 0.42 });
-plinthScene('ch-grade.svg', '一架珍珠白 96 贝斯手风琴，风箱半开', { bg: '#1c1b17', plinth: '#29271f', plinthLit: '#363328', finish: 'pearl', whites: 21, folds: 6, fill: 0.56 });
-plinthScene('ch-adult.svg', '一架黑色 120 贝斯手风琴，风箱拉开', { bg: '#000000', plinth: '#111211', plinthLit: '#1b1c1b', finish: 'black', whites: 24, folds: 9, fw: 10, fill: 0.6 });
+plinthScene('ch-kids.svg', '一架红色的 16 贝斯儿童手风琴', { finish: 'red', whites: 12, folds: 4, fw: 10, bassW: 56, fill: 0.42 });
+plinthScene('ch-grade.svg', '一架珍珠白 96 贝斯手风琴，风箱半开', { finish: 'pearl', whites: 21, folds: 6, fill: 0.56 });
+plinthScene('ch-adult.svg', '一架黑色 120 贝斯手风琴，风箱拉开', { finish: 'black', whites: 24, folds: 9, fw: 10, fill: 0.6 });
 
 // ---------- reed block close-up ----------
 function reedBlock(w, h, bg, { file = true } = {}) {
@@ -173,8 +168,8 @@ function reedBlock(w, h, bg, { file = true } = {}) {
   }
   return parts.join('');
 }
-save('reeds.svg', 800, 1000, reedBlock(800, 1000, C.ground), '簧片座特写：铝制簧板上铆着钢簧片');
-save('ch-repair.svg', 750, 1000, reedBlock(750, 1000, '#1e140c'), '待调音的簧片座和一把调音锉');
+save('reeds.svg', 800, 1000, reedBlock(800, 1000, 'none'), '簧片座特写：铝制簧板上铆着钢簧片');
+save('ch-repair.svg', 750, 1000, reedBlock(750, 1000, 'none'), '待调音的簧片座和一把调音锉');
 
 // ---------- bellows close-up ----------
 function bellows(w, h, bg) {
@@ -200,7 +195,7 @@ function bellows(w, h, bg) {
   for (let i = 0; i < 16; i++) parts.push(c(30 + i * ((w - 60) / 15), top - h * 0.03, 3, '#9aa09a'));
   return parts.join('');
 }
-save('bellows.svg', 1280, 800, bellows(1280, 800, C.ground), '风箱的褶皱与黄铜包角');
+save('bellows.svg', 1280, 800, bellows(1280, 800, 'none'), '风箱的褶皱与黄铜包角');
 
 // ---------- bass buttons, seen from above ----------
 function bassField(w, h, bg, { rotate = -24, rows = 6, cols = 12 } = {}) {
@@ -223,8 +218,7 @@ function bassField(w, h, bg, { rotate = -24, rows = 6, cols = 12 } = {}) {
   parts.push(`<g transform="translate(${f(w * 0.18)} ${f(h * 0.42)}) rotate(${rotate})">${g.join('')}</g>`);
   return parts.join('');
 }
-save('bass.svg', 900, 900, bassField(900, 900, C.ground), '左手贝斯键盘的斜排按键，C 键上有一颗定位钻');
-save('bass-surface.svg', 900, 900, bassField(900, 900, C.ground2, { rotate: -18 }), '左手贝斯键盘的斜排按键');
+save('bass.svg', 900, 900, bassField(900, 900, 'none'), '左手贝斯键盘的斜排按键，C 键上有一颗定位钻');
 
 // ---------- sizes, from 8 to 120 bass ----------
 const sizes = [8, 12, 16, 24, 32, 40, 48, 60, 72, 80, 96, 120];
@@ -232,20 +226,19 @@ const cycle = ['red', 'pearl', 'black', 'green', 'blue', 'red', 'black', 'pearl'
 sizes.forEach((b, i) => {
   const t = (b - 8) / 112;
   const obj = accordion({ finish: cycle[i], whites: Math.round(10 + t * 14), folds: 3 + Math.round(t * 2), fw: 10, bassW: 50 + t * 34, closedStrap: true, plate: b >= 32 ? 'HOHNER' : '' });
-  const w = 400, h = 600, base = 470;
+  const w = 400, h = 600, base = 520;
+  const ow = 300 * (0.6 + t * 0.4);
   const body = [
-    r(0, 0, w, h, C.ground2), r(0, base, w, h - base, C.ground3),
-    place(obj, w / 2, base + 2, 190 + t * 190),
-    `<text x="${w / 2}" y="${base + 78}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="${C.ink}">${b}</text>`,
-    `<text x="${w / 2}" y="${base + 108}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="17" letter-spacing="3" fill="#9aa39a">BASS</text>`,
+    r((w - ow) / 2 - 20, base, ow + 40, h - base, '#15120e'), r((w - ow) / 2 - 20, base, ow + 40, 2, C.gold),
+    place(obj, w / 2, base + 2, 130 + t * 240),
   ].join('');
-  save(`size-${b}.svg`, w, h, body, `${b} 贝斯手风琴`);
+  save(`size-${b}.svg`, w, h, body, `${b} 贝斯手风琴`, '0 140 400 460');
 });
 
 // ---------- the wall of instruments in the shop ----------
 {
   const w = 900, h = 1200;
-  const parts = [r(0, 0, w, h, C.ground), r(w * 0.04, 0, w * 0.92, h, C.ground2)];
+  const parts = [r(0, 0, w, h, '#0c0a08'), r(w * 0.04, 0, w * 0.92, h, '#14110d')];
   const shelves = [
     [['red', 16, 0.34], ['black', 24, 0.42], ['pearl', 20, 0.38]],
     [['green', 22, 0.4], ['pearl', 24, 0.44]],
@@ -267,14 +260,14 @@ sizes.forEach((b, i) => {
 {
   const w = 1920, h = 1080;
   const P = [];
-  const sky = ['#0b1a0c', '#0f2112', '#152a18', '#1f3220', '#3b3a22', '#6e5527'];
+  const sky = ['#09090a', '#0c0c0e', '#111114', '#18171a', '#2b2419', '#5a4520'];
   const bandH = 600 / sky.length;
   sky.forEach((col, i) => P.push(r(0, i * bandH, w, bandH + 1, col)));
   P.push(c(560, 150, 38, '#e9e1c8'), c(574, 140, 38, sky[1]));
   // distant city
   for (let i = 0; i < 26; i++) {
     const bw = 50 + ((i * 37) % 70), bh = 40 + ((i * 53) % 120);
-    P.push(r(i * 76 - 20, 600 - bh, bw, bh, '#2a3324'));
+    P.push(r(i * 76 - 20, 600 - bh, bw, bh, '#1d1b19'));
     if (i % 3 === 0) P.push(r(i * 76, 600 - bh + 14, 6, 8, '#e6c886'));
   }
   // wall face: brick courses as tone bands, crenellations on top
@@ -310,8 +303,8 @@ sizes.forEach((b, i) => {
   // a cyclist on the wall, and a walker with an accordion case on the moat bridge
   P.push(c(1300, wy - 66, 10, '#0c0c09'), c(1338, wy - 66, 10, '#0c0c09'), r(1306, wy - 92, 26, 6, '#0c0c09'), c(1320, wy - 108, 6, '#0c0c09'), r(1316, wy - 102, 8, 18, '#0c0c09'));
   // moat and its reflections
-  P.push(r(0, wy + wh, w, h - wy - wh, '#0b170d'));
-  for (let i = 0; i < 9; i++) P.push(r(0, wy + wh + 14 + i * 16, w, 6, i % 2 ? '#0e1c10' : '#112313'));
+  P.push(r(0, wy + wh, w, h - wy - wh, '#0a0a09'));
+  for (let i = 0; i < 9; i++) P.push(r(0, wy + wh + 14 + i * 16, w, 6, i % 2 ? '#0d0d0c' : '#10100f'));
   for (let i = 0; i < 6; i++) {
     const lx = gx + 50 + i * ((gw - 100) / 5);
     for (let k = 0; k < 4; k++) P.push(r(lx - 16 + (k % 2) * 8, wy + wh + 40 + k * 26, 26 - k * 4, 6, k < 2 ? '#7a1c1d' : '#4a1415'));
@@ -322,7 +315,7 @@ sizes.forEach((b, i) => {
   P.push(c(1040, wy + wh - 30, 9, '#0c0c09'), r(1033, wy + wh - 21, 14, 40, '#0c0c09'), r(1047, wy + wh - 6, 26, 22, '#3a2516'), r(1047, wy + wh - 6, 26, 5, '#5a3a22'));
   // trees
   for (const [tx, ty, s] of [[60, 640, 1], [150, 680, 0.8], [1700, 650, 1.1], [1820, 690, 0.9]]) {
-    P.push(r(tx - 5 * s, ty, 10 * s, 120 * s, '#07100a'), c(tx, ty - 10 * s, 70 * s, '#081209'), c(tx - 40 * s, ty + 20 * s, 50 * s, '#0a160c'), c(tx + 45 * s, ty + 15 * s, 55 * s, '#091409'));
+    P.push(r(tx - 5 * s, ty, 10 * s, 120 * s, '#060606'), c(tx, ty - 10 * s, 70 * s, '#070707'), c(tx - 40 * s, ty + 20 * s, 50 * s, '#090909'), c(tx + 45 * s, ty + 15 * s, 55 * s, '#080808'));
   }
   save('xian-wall.svg', w, h, P.join(''), '黄昏的西安南门箭楼和城墙，城墙上有人骑车');
 }

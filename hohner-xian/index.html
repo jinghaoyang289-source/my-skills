@@ -4,262 +4,180 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>西安霍纳手风琴艺术中心</title>
-<meta name="description" content="西安霍纳手风琴艺术中心：少儿与成人手风琴课、考级集训、霍纳乐器销售与维修。">
+<meta name="description" content="西安霍纳手风琴艺术中心：少儿与成人手风琴课、考级、霍纳乐器与维修。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Noto+Serif+SC:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<main id="top">
+<div class="light" aria-hidden="true"><div class="pool"></div></div>
 
+<main id="top">
   <header class="bar wrap">
     <a class="bar-name link" href="#top">霍纳手风琴</a>
     <nav aria-label="页面">
       <a class="link" href="#courses">课程</a>
-      <a class="link" href="#schedule">课表</a>
-      <a class="link" href="#price">收费</a>
+      <a class="link" href="#price">价格</a>
       <a class="link" href="#visit">到访</a>
     </nav>
   </header>
 
   <section class="hero wrap" aria-labelledby="title">
-    <div class="hero-object" data-crossfade>
-      <img src="img/hero-black.svg" alt="一架黑色 120 贝斯手风琴，风箱拉开，立在展台上" width="1600" height="760" class="is-on">
-      <img src="img/hero-red.svg" alt="" width="1600" height="760" aria-hidden="true">
-      <img src="img/hero-pearl.svg" alt="" width="1600" height="760" aria-hidden="true">
+    <div class="hero-stage" data-spot>
+      <button type="button" class="squeeze" id="squeeze" aria-label="拉响手风琴：按住左右拖动风箱，或按回车让它呼吸一次">
+        <img src="img/ch-adult.svg" alt="" width="750" height="1000" class="squeeze-fallback">
+      </button>
     </div>
     <h1 id="title" class="wordmark" data-rise style="--i:1">西安霍纳<br class="only-phone">手风琴艺术中心</h1>
-    <p class="hero-line" data-rise style="--i:2">西安的手风琴学校和琴行：教琴、卖琴、修琴，陪孩子考到十级。</p>
+    <p class="hero-line" data-rise style="--i:2">西安的手风琴学校与霍纳琴行</p>
     <div class="hero-row" data-rise style="--i:3">
-      <span>德国霍纳 · 创立于 1857</span>
-      <a class="button" href="#visit">预约试听课 · 免费</a>
-      <span>4 岁起 · 成人零基础</span>
+      <a class="button" href="#visit">预约试听</a>
+      <div class="finish" role="group" aria-label="琴身颜色">
+        <button type="button" class="swatch" data-finish="black" aria-pressed="true" aria-label="黑色" style="--c:#1b1c1b"></button>
+        <button type="button" class="swatch" data-finish="red" aria-pressed="false" aria-label="红色" style="--c:#9e2023"></button>
+        <button type="button" class="swatch" data-finish="pearl" aria-pressed="false" aria-label="珍珠白" style="--c:#e4ddcd"></button>
+      </div>
     </div>
+    <p class="hint" aria-hidden="true">点一下琴，或按住左右拖动风箱</p>
   </section>
 
-  <section class="intro wrap" aria-labelledby="intro-title">
-    <div class="intro-pin">
-      <h2 id="intro-title" class="head" data-reveal>一架琴怎么发声</h2>
-      <p class="statement" data-reveal style="--i:1">右手唱旋律，左手一百二十个贝斯键管和声，风箱是它的呼吸。</p>
-    </div>
-    <div class="intro-pass">
-      <figure class="pass pass-a" data-reveal>
-        <img src="img/reeds.svg" alt="簧片座特写：铝制簧板上铆着钢簧片" width="800" height="1000" loading="lazy">
-        <figcaption>簧片：每个音两片钢簧，拉开响一片，合上响另一片。</figcaption>
-      </figure>
-      <figure class="pass pass-b" data-reveal>
-        <img src="img/bellows.svg" alt="风箱的褶皱与黄铜包角" width="1280" height="800" loading="lazy">
-        <figcaption>风箱：拉得快就响，拉得慢就轻。手风琴的强弱全在这里。</figcaption>
-      </figure>
-      <figure class="pass pass-c" data-reveal>
-        <img src="img/bass.svg" alt="左手贝斯键盘的斜排按键，C 键上有一颗定位钻" width="900" height="900" loading="lazy">
-        <figcaption>贝斯键：C 键上有一颗小钻，左手不看也找得到。</figcaption>
-      </figure>
-    </div>
+  <section class="parts wrap" aria-labelledby="parts-title">
+    <h2 id="parts-title" class="head" data-reveal>一架琴怎么发声</h2>
+    <figure class="exhibit ex-left" data-spot data-reveal>
+      <img src="img/reeds.svg" alt="簧片座特写：铝制簧板上铆着钢簧片" width="800" height="1000" loading="lazy">
+      <figcaption class="label"><span class="label-name">簧片</span>一推一拉，各响一片钢簧。</figcaption>
+    </figure>
+    <figure class="exhibit ex-wide" data-spot data-reveal>
+      <img src="img/bellows.svg" alt="风箱的褶皱与黄铜包角" width="1280" height="800" loading="lazy">
+      <figcaption class="label"><span class="label-name">风箱</span>拉得越快，声音越响。</figcaption>
+    </figure>
+    <figure class="exhibit ex-right" data-spot data-reveal>
+      <img src="img/bass.svg" alt="左手贝斯键盘的斜排按键，C 键上有一颗定位钻" width="900" height="900" loading="lazy">
+      <figcaption class="label"><span class="label-name">贝斯键</span>C 键上有一颗小钻，不看也找得到。</figcaption>
+    </figure>
   </section>
 
-  <section class="try wrap" id="try" aria-labelledby="try-title">
+  <section class="try wrap" aria-labelledby="try-title">
     <div class="try-text">
       <h2 id="try-title" class="head" data-reveal>按一下，听左手</h2>
-      <p data-reveal style="--i:1">这是 120 贝斯琴左手最常用的三排：一排单音，一排大三和弦，一排小三和弦。每一列相差五度，所以 C 的左右两边就是 F 和 G，一首儿歌常常只用这三列。</p>
-      <p data-reveal style="--i:2">试听课上，老师会让孩子先找到 C 键上的那颗小钻。</p>
-      <div class="voice" role="group" aria-label="音色" data-reveal style="--i:3">
+      <p class="lead" data-reveal style="--i:1">一排单音，两排和弦。</p>
+      <div class="voice" role="group" aria-label="音色" data-reveal style="--i:2">
         <button type="button" class="voice-btn" aria-pressed="true" data-voice="1">单簧</button>
         <button type="button" class="voice-btn" aria-pressed="false" data-voice="3">三簧颤音</button>
       </div>
     </div>
-    <div class="try-board" data-reveal style="--i:2">
-      <div class="air" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="try-board" data-spot data-reveal style="--i:2">
       <div class="board" id="board" role="group" aria-label="贝斯键盘，按住发声"></div>
-      <noscript><p class="small">开启浏览器脚本后可以弹奏这组贝斯键。</p></noscript>
+      <noscript><p>开启浏览器脚本后可以弹奏。</p></noscript>
     </div>
   </section>
 
-  <div id="courses">
-    <section class="chapter" style="--field:#2a1011" data-chapter aria-labelledby="c1">
-      <h2 id="c1" class="chapter-title">少儿启蒙 · 4 至 8 岁</h2>
-      <img src="img/ch-kids.svg" alt="一架红色的 16 贝斯儿童手风琴" width="750" height="1000" loading="lazy">
-      <p class="chapter-text">从 16 贝斯的小琴开始，先学会用风箱唱一首儿歌，再学认谱。每节 45 分钟，家长可以旁听。</p>
-      <a class="chapter-link link-plain" href="#price">少儿课收费</a>
+  <div id="courses" class="courses">
+    <section class="course" aria-labelledby="c1">
+      <figure class="course-pic" data-spot data-reveal><img src="img/ch-kids.svg" alt="一架红色的 16 贝斯儿童手风琴" width="750" height="1000" loading="lazy"></figure>
+      <div class="course-text" data-reveal style="--i:1">
+        <h2 id="c1" class="head">少儿启蒙</h2>
+        <p class="lead">4 到 8 岁，从 16 贝斯的小琴开始。</p>
+        <a class="link-plain" href="#price">看课程价格</a>
+      </div>
     </section>
-    <section class="chapter" style="--field:#1c1b17" data-chapter aria-labelledby="c2">
-      <h2 id="c2" class="chapter-title">考级 · 一级到十级</h2>
-      <img src="img/ch-grade.svg" alt="一架珍珠白 96 贝斯手风琴，风箱半开" width="750" height="1000" loading="lazy">
-      <p class="chapter-text">按社会艺术水平考级曲目一级一级走，寒暑假集训，每学期在琴房办一场学生汇报。</p>
-      <a class="chapter-link link-plain" href="#schedule">看集训课表</a>
+    <section class="course flip" aria-labelledby="c2">
+      <figure class="course-pic" data-spot data-reveal><img src="img/ch-grade.svg" alt="一架珍珠白 96 贝斯手风琴" width="750" height="1000" loading="lazy"></figure>
+      <div class="course-text" data-reveal style="--i:1">
+        <h2 id="c2" class="head">考级</h2>
+        <p class="lead">一级到十级，寒暑假集训。</p>
+        <a class="link-plain" href="#price">看集训价格</a>
+      </div>
     </section>
-    <section class="chapter" style="--field:#000000" data-chapter aria-labelledby="c3">
-      <h2 id="c3" class="chapter-title">成人 · 从零开始</h2>
-      <img src="img/ch-adult.svg" alt="一架黑色 120 贝斯手风琴，风箱拉开" width="750" height="1000" loading="lazy">
-      <p class="chapter-text">下班后来一小时。第一学期的目标是完整拉下《喀秋莎》，左右手一起。</p>
-      <a class="chapter-link link-plain" href="#schedule">看晚间课表</a>
+    <section class="course" aria-labelledby="c3">
+      <figure class="course-pic" data-spot data-reveal><img src="img/ch-adult.svg" alt="一架黑色 120 贝斯手风琴，风箱拉开" width="750" height="1000" loading="lazy"></figure>
+      <div class="course-text" data-reveal style="--i:1">
+        <h2 id="c3" class="head">成人零基础</h2>
+        <p class="lead">一个学期，拉完一首《喀秋莎》。</p>
+        <a class="link-plain" href="#visit">约一节晚间试听</a>
+      </div>
     </section>
-    <section class="chapter" style="--field:#1e140c" data-chapter aria-labelledby="c4">
-      <h2 id="c4" class="chapter-title">乐器与维修</h2>
-      <img src="img/ch-repair.svg" alt="待调音的簧片座和一把调音锉" width="750" height="1000" loading="lazy">
-      <p class="chapter-text">霍纳全系列在店里可以试奏。调音、补簧蜡、换皮阀和修风箱都在后面的工作间完成。</p>
-      <a class="chapter-link link-plain" href="#price">看维修价格</a>
+    <section class="course flip" aria-labelledby="c4">
+      <figure class="course-pic" data-spot data-reveal><img src="img/ch-repair.svg" alt="待调音的簧片座和一把调音锉" width="750" height="1000" loading="lazy"></figure>
+      <div class="course-text" data-reveal style="--i:1">
+        <h2 id="c4" class="head">乐器与维修</h2>
+        <p class="lead">霍纳全系列可试奏，调音修理在店内完成。</p>
+        <a class="link-plain" href="#price">看乐器价格</a>
+      </div>
     </section>
   </div>
 
-  <section class="schedule wrap" id="schedule" aria-labelledby="schedule-title">
-    <h2 id="schedule-title" class="head" data-reveal>每周课表</h2>
-    <div class="table" role="table" aria-label="每周课表">
-      <div class="day" role="rowgroup">
-        <h3 class="day-name">周二</h3>
-        <div class="row" role="row"><span role="cell">少儿启蒙</span><span role="cell">小组 · 4 人</span><span role="cell">一号琴房</span><span role="cell" class="t">16:30–17:15</span></div>
-        <div class="row" role="row"><span role="cell">一对一</span><span role="cell">考级 五至七级</span><span role="cell">二号琴房</span><span role="cell" class="t">17:30–20:30</span></div>
-        <div class="row" role="row"><span role="cell">成人零基础</span><span role="cell">小组 · 4 人</span><span role="cell">一号琴房</span><span role="cell" class="t">19:30–20:30</span></div>
-      </div>
-      <div class="day" role="rowgroup">
-        <h3 class="day-name">周三</h3>
-        <div class="row" role="row"><span role="cell">少儿启蒙</span><span role="cell">一对一</span><span role="cell">一号琴房</span><span role="cell" class="t">16:30–18:00</span></div>
-        <div class="row" role="row"><span role="cell">成人进阶</span><span role="cell">一对一</span><span role="cell">二号琴房</span><span role="cell" class="t">19:00–21:00</span></div>
-      </div>
-      <div class="day" role="rowgroup">
-        <h3 class="day-name">周四</h3>
-        <div class="row" role="row"><span role="cell">考级 一至四级</span><span role="cell">小组 · 4 人</span><span role="cell">一号琴房</span><span role="cell" class="t">16:30–17:30</span></div>
-        <div class="row" role="row"><span role="cell">乐团合奏</span><span role="cell">合奏 · 12 人</span><span role="cell">演奏厅</span><span role="cell" class="t">18:30–20:00</span></div>
-      </div>
-      <div class="day" role="rowgroup">
-        <h3 class="day-name">周五</h3>
-        <div class="row" role="row"><span role="cell">一对一</span><span role="cell">考级 八至十级</span><span role="cell">二号琴房</span><span role="cell" class="t">17:00–21:00</span></div>
-        <div class="row" role="row"><span role="cell">成人零基础</span><span role="cell">小组 · 4 人</span><span role="cell">一号琴房</span><span role="cell" class="t">19:30–20:30</span></div>
-      </div>
-      <div class="day" role="rowgroup">
-        <h3 class="day-name">周六</h3>
-        <div class="row" role="row"><span role="cell">少儿启蒙</span><span role="cell">小组 · 4 人</span><span role="cell">一号琴房</span><span role="cell" class="t">09:00–09:45</span></div>
-        <div class="row" role="row"><span role="cell">少儿启蒙</span><span role="cell">小组 · 4 人</span><span role="cell">一号琴房</span><span role="cell" class="t">10:00–10:45</span></div>
-        <div class="row" role="row"><span role="cell">考级 一至四级</span><span role="cell">一对一</span><span role="cell">二号琴房</span><span role="cell" class="t">09:00–12:00</span></div>
-        <div class="row" role="row"><span role="cell">试听课</span><span role="cell">一对一 · 30 分钟</span><span role="cell">二号琴房</span><span role="cell" class="t">14:00–17:00</span></div>
-        <div class="row" role="row"><span role="cell">乐器试奏</span><span role="cell">预约</span><span role="cell">琴行</span><span role="cell" class="t">14:00–18:00</span></div>
-      </div>
-      <div class="day" role="rowgroup">
-        <h3 class="day-name">周日</h3>
-        <div class="row" role="row"><span role="cell">考级 五至七级</span><span role="cell">小组 · 3 人</span><span role="cell">一号琴房</span><span role="cell" class="t">09:00–10:30</span></div>
-        <div class="row" role="row"><span role="cell">成人进阶</span><span role="cell">小组 · 4 人</span><span role="cell">二号琴房</span><span role="cell" class="t">10:00–11:30</span></div>
-        <div class="row" role="row"><span role="cell">学生汇报</span><span role="cell">每月最后一个周日</span><span role="cell">演奏厅</span><span role="cell" class="t">15:00–16:30</span></div>
-        <div class="row rest" role="row"><span role="cell">周一闭馆 · 琴房保养</span><span role="cell"></span><span role="cell"></span><span role="cell" class="t"></span></div>
-      </div>
+  <section class="sizes" aria-labelledby="sizes-title">
+    <h2 id="sizes-title" class="head wrap" data-reveal>琴随人长</h2>
+    <div class="strip" tabindex="0" aria-label="从 8 贝斯到 120 贝斯的十二种手风琴，可左右滑动">
+      <figure><img src="img/size-8.svg" alt="8 贝斯" width="400" height="460" loading="lazy"><figcaption>8</figcaption></figure>
+      <figure><img src="img/size-12.svg" alt="12 贝斯" width="400" height="460" loading="lazy"><figcaption>12</figcaption></figure>
+      <figure><img src="img/size-16.svg" alt="16 贝斯" width="400" height="460" loading="lazy"><figcaption>16</figcaption></figure>
+      <figure><img src="img/size-24.svg" alt="24 贝斯" width="400" height="460" loading="lazy"><figcaption>24</figcaption></figure>
+      <figure><img src="img/size-32.svg" alt="32 贝斯" width="400" height="460" loading="lazy"><figcaption>32</figcaption></figure>
+      <figure><img src="img/size-40.svg" alt="40 贝斯" width="400" height="460" loading="lazy"><figcaption>40</figcaption></figure>
+      <figure><img src="img/size-48.svg" alt="48 贝斯" width="400" height="460" loading="lazy"><figcaption>48</figcaption></figure>
+      <figure><img src="img/size-60.svg" alt="60 贝斯" width="400" height="460" loading="lazy"><figcaption>60</figcaption></figure>
+      <figure><img src="img/size-72.svg" alt="72 贝斯" width="400" height="460" loading="lazy"><figcaption>72</figcaption></figure>
+      <figure><img src="img/size-80.svg" alt="80 贝斯" width="400" height="460" loading="lazy"><figcaption>80</figcaption></figure>
+      <figure><img src="img/size-96.svg" alt="96 贝斯" width="400" height="460" loading="lazy"><figcaption>96</figcaption></figure>
+      <figure><img src="img/size-120.svg" alt="120 贝斯，成人标准尺寸" width="400" height="460" loading="lazy"><figcaption>120</figcaption></figure>
     </div>
   </section>
 
   <section class="price wrap" id="price" aria-labelledby="price-title">
-    <div class="price-side">
-      <h2 id="price-title" class="head" data-reveal>收费</h2>
-      <img src="img/size-48.svg" alt="一架 48 贝斯手风琴，适合刚入门的孩子" width="400" height="600" loading="lazy" data-reveal style="--i:1">
-    </div>
-    <div class="menu">
-      <div class="menu-col">
-        <div class="group" data-reveal>
-          <h3>课程 <span class="cur">元 / 节</span></h3>
-          <div class="item"><div class="item-line"><span>试听课 · 30 分钟</span><span>免费</span></div><p>老师看手型，帮孩子挑合适大小的琴。</p></div>
-          <div class="item"><div class="item-line"><span>一对一 · 45 分钟</span><span>280</span></div><p>少儿启蒙，家长可旁听。</p></div>
-          <div class="item"><div class="item-line"><span>一对一 · 60 分钟</span><span>360</span></div><p>考级学生与成人进阶。</p></div>
-          <div class="item"><div class="item-line"><span>小组课 · 60 分钟</span><span>140</span></div><p>每人每节，四人同级同班。</p></div>
-          <div class="item"><div class="item-line"><span>考级集训 · 8 节</span><span>2,480</span></div><p>考前两个月开班，含一次模拟考。</p></div>
-        </div>
-        <div class="group" data-reveal>
-          <h3>维修 <span class="cur">元</span></h3>
-          <div class="item"><div class="item-line"><span>全面调音</span><span>1,200</span></div><p>120 贝斯四排簧全部调准，约一周。</p></div>
-          <div class="item"><div class="item-line"><span>补簧蜡 · 换皮阀</span><span>380 起</span></div><p>处理漏气、哑音和杂音。</p></div>
-          <div class="item"><div class="item-line"><span>风箱修补</span><span>450 起</span></div><p>先免费检查，报价后再动手。</p></div>
-        </div>
+    <h2 id="price-title" class="head" data-reveal>价格</h2>
+    <div class="price-cols">
+      <div class="price-group" data-reveal>
+        <h3>课程 · 元 / 节</h3>
+        <dl>
+          <div><dt>试听课</dt><dd>免费</dd></div>
+          <div><dt>一对一 · 45 分钟</dt><dd>280</dd></div>
+          <div><dt>小组课 · 每人</dt><dd>140</dd></div>
+          <div><dt>考级集训 · 8 节</dt><dd>2,480</dd></div>
+        </dl>
       </div>
-      <div class="menu-col">
-        <div class="group" data-reveal>
-          <h3>乐器 <span class="cur">元</span></h3>
-          <div class="item"><div class="item-line"><span>霍纳 Nova II · 48 贝斯</span><span>7,980</span></div><p>五到八岁，第一架真正的琴。</p></div>
-          <div class="item"><div class="item-line"><span>霍纳 Bravo III · 72 贝斯</span><span>12,800</span></div><p>小学高年级到初中，考到六级够用。</p></div>
-          <div class="item"><div class="item-line"><span>霍纳 Bravo III · 120 贝斯</span><span>19,800</span></div><p>成人和考级高年级的标准尺寸。</p></div>
-          <div class="item"><div class="item-line"><span>霍纳 Amica IV · 120 贝斯</span><span>26,800</span></div><p>四排簧，音色更厚，适合登台。</p></div>
-          <div class="item"><div class="item-line"><span>霍纳 Morino · 专业级</span><span>到店询价</span></div><p>需预约试奏，周六下午。</p></div>
-        </div>
-        <div class="group" data-reveal>
-          <h3>租琴 <span class="cur">元 / 月</span></h3>
-          <div class="item"><div class="item-line"><span>48 贝斯</span><span>200</span></div><p>学员租满一年，租金可抵购琴款。</p></div>
-          <div class="item"><div class="item-line"><span>72 贝斯</span><span>300</span></div><p>含每学期一次保养。</p></div>
-          <div class="item"><div class="item-line"><span>96 贝斯</span><span>380</span></div><p>考级前可短租一个月。</p></div>
-        </div>
+      <div class="price-group" data-reveal style="--i:1">
+        <h3>乐器 · 元</h3>
+        <dl>
+          <div><dt>霍纳 Nova II · 48 贝斯</dt><dd>7,980</dd></div>
+          <div><dt>霍纳 Bravo III · 120 贝斯</dt><dd>19,800</dd></div>
+          <div><dt>霍纳 Amica IV · 120 贝斯</dt><dd>26,800</dd></div>
+          <div><dt>维修与租琴</dt><dd>到店报价</dd></div>
+        </dl>
       </div>
-    </div>
-  </section>
-
-  <section class="sizes" aria-labelledby="sizes-title">
-    <h2 id="sizes-title" class="sizes-title">琴随人长 · 从 8 贝斯到 120 贝斯</h2>
-    <div class="strip" tabindex="0" aria-label="十二种尺寸的手风琴，可左右滑动">
-      <img src="img/size-8.svg" alt="8 贝斯，约三四岁" width="400" height="600" loading="lazy">
-      <img src="img/size-12.svg" alt="12 贝斯" width="400" height="600" loading="lazy">
-      <img src="img/size-16.svg" alt="16 贝斯，四到六岁" width="400" height="600" loading="lazy">
-      <img src="img/size-24.svg" alt="24 贝斯" width="400" height="600" loading="lazy">
-      <img src="img/size-32.svg" alt="32 贝斯，六到七岁" width="400" height="600" loading="lazy">
-      <img src="img/size-40.svg" alt="40 贝斯" width="400" height="600" loading="lazy">
-      <img src="img/size-48.svg" alt="48 贝斯，七到九岁" width="400" height="600" loading="lazy">
-      <img src="img/size-60.svg" alt="60 贝斯" width="400" height="600" loading="lazy">
-      <img src="img/size-72.svg" alt="72 贝斯，九到十二岁" width="400" height="600" loading="lazy">
-      <img src="img/size-80.svg" alt="80 贝斯" width="400" height="600" loading="lazy">
-      <img src="img/size-96.svg" alt="96 贝斯，十二岁以上" width="400" height="600" loading="lazy">
-      <img src="img/size-120.svg" alt="120 贝斯，成人标准尺寸" width="400" height="600" loading="lazy">
     </div>
   </section>
 
   <section class="faq wrap" aria-labelledby="faq-title">
-    <div class="faq-text">
-      <h2 id="faq-title" class="head" data-reveal>常见问题</h2>
-      <ul class="facts" data-reveal style="--i:1">
-        <li>碑林区南大街 126 号二层，南门里</li>
-        <li>周二至周日开放，周一闭馆</li>
-        <li>地铁 2 号线永宁门站 C 口，步行 4 分钟</li>
-      </ul>
-      <div class="qa" data-reveal style="--i:2">
-        <details><summary>孩子几岁可以开始学？</summary><p>一般 5 岁左右：手能张开、能坐住半小时就可以。试听课上老师会看手型，再推荐琴的大小。</p></details>
-        <details><summary>一定要先买琴吗？</summary><p>不用。前三个月可以租琴，也可以在琴房练。租满一年，租金可以抵购琴款。</p></details>
-        <details><summary>成人没学过乐理，能学吗？</summary><p>能。成人班从读谱和拉风箱开始，第一学期不要求任何基础。</p></details>
-        <details><summary>考级怎么安排？</summary><p>每年寒假和暑假各有一次社会艺术水平考级。报名、考前集训和陪考由中心统一安排。</p></details>
-        <details><summary>不是在这里买的琴，也能修吗？</summary><p>能。任何品牌的琴都可以送来，先免费检查，报价后你决定修不修。</p></details>
-        <details><summary>附近好停车吗？</summary><p>南大街路边车位紧张，建议停在南门外的地下停车场，步行约 6 分钟。</p></details>
-      </div>
-      <div class="faq-actions" data-reveal style="--i:3">
-        <a class="button" href="tel:+862987654321">打电话问老师</a>
-        <a class="link-plain" href="#visit">看到访信息</a>
-      </div>
-    </div>
-    <div class="faq-pics">
-      <img class="faq-tall" src="img/wall.svg" alt="琴行墙上三层木架，摆着不同颜色和大小的手风琴" width="900" height="1200" loading="lazy" data-reveal>
-      <img class="faq-square" src="img/bass-surface.svg" alt="贝斯键盘的斜排按键" width="900" height="900" loading="lazy" data-reveal style="--i:2">
+    <h2 id="faq-title" class="head" data-reveal>常见问题</h2>
+    <div class="qa" data-reveal style="--i:1">
+      <details><summary>孩子几岁可以学？</summary><p>5 岁左右。试听课上老师看手型，再推荐琴的大小。</p></details>
+      <details><summary>要先买琴吗？</summary><p>不用。前三个月可以租琴，也可以在琴房练。</p></details>
+      <details><summary>成人没有基础能学吗？</summary><p>能。成人班从读谱和拉风箱开始。</p></details>
+      <details><summary>别处买的琴能修吗？</summary><p>能。先免费检查，报价后你再决定。</p></details>
     </div>
   </section>
 
-  <section class="visit" id="visit" aria-labelledby="visit-title">
-    <img class="visit-pic" src="img/xian-wall.svg" alt="黄昏的西安南门箭楼和城墙，城墙上有人骑车" width="1920" height="1080" loading="lazy">
-    <div class="card" data-reveal>
-      <h2 id="visit-title">到琴房来</h2>
-      <p>西安市碑林区南大街 126 号二层<br>地铁 2 号线永宁门站 C 口</p>
-      <dl class="hours">
-        <div><dt>周二至周五</dt><dd>14:00–21:00</dd></div>
-        <div><dt>周六、周日</dt><dd>09:00–18:00</dd></div>
-        <div><dt>周一</dt><dd>闭馆</dd></div>
-      </dl>
-      <p><a class="link-plain" href="tel:+862987654321">029-8765 4321</a></p>
-      <a class="button card-button" href="tel:+862987654321">预约一节试听课</a>
+  <section class="visit wrap" id="visit" aria-labelledby="visit-title">
+    <figure class="visit-pic" data-spot data-reveal>
+      <img src="img/xian-wall.svg" alt="夜色中的西安南门箭楼和城墙" width="1920" height="1080" loading="lazy">
+    </figure>
+    <div class="visit-text" data-reveal style="--i:1">
+      <h2 id="visit-title" class="head">到琴房来</h2>
+      <p class="lead">碑林区南大街 126 号二层</p>
+      <p>地铁 2 号线永宁门站 C 口</p>
+      <p>周二至周五 14:00–21:00<br>周六、周日 09:00–18:00 · 周一闭馆</p>
+      <a class="button" href="tel:+862987654321">029-8765 4321 · 预约试听</a>
     </div>
   </section>
-
 </main>
 
-<footer class="foot">
-  <div class="foot-cols wrap">
-    <div><p>地址</p><p>碑林区南大街 126 号二层</p><p>永宁门站 C 口</p></div>
-    <div><p>页面</p><p><a class="link" href="#courses">课程</a></p><p><a class="link" href="#schedule">课表</a></p><p><a class="link" href="#price">收费</a></p><p><a class="link" href="#visit">到访</a></p></div>
-    <div><p>关注</p><p>微信公众号：霍纳手风琴西安</p><p>小红书：霍纳手风琴西安</p></div>
-    <div><p>开放时间</p><p>周二至周五 14:00–21:00</p><p>周六、周日 09:00–18:00</p><p>周一闭馆</p></div>
-  </div>
-  <div class="foot-mark wrap">
-    <svg viewBox="0 0 900 100" aria-hidden="true" class="foot-word"><text x="450" y="86" text-anchor="middle" textLength="900" lengthAdjust="spacingAndGlyphs">霍纳手风琴艺术中心</text></svg>
-    <p class="legal">© 2026 西安霍纳手风琴艺术中心 · HOHNER 是 Matth. Hohner AG 的注册商标 · 页面图片为插画，实拍照片待补充</p>
-  </div>
+<footer class="foot wrap">
+  <svg class="foot-word" viewBox="0 0 1000 110" role="img" aria-label="霍纳手风琴艺术中心"><text x="500" y="92" text-anchor="middle" textLength="1000" lengthAdjust="spacingAndGlyphs">霍纳手风琴艺术中心</text></svg>
+  <p class="legal">© 2026 西安霍纳手风琴艺术中心 · HOHNER 是 Matth. Hohner AG 的注册商标 · 图片为插画，实拍待补充</p>
 </footer>
 
 <script src="main.js"></script>
